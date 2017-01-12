@@ -1,17 +1,49 @@
 var add = function(number1, number2) {
-return number1 + number2;
-}
-var diff = function(number1, number2) {
-return number1 - number2;
-}
-var quotient = function(number1, number2) {
-return number1 / number2;
-}
-var product = function(number1, number2) {
-return number1 * number2;
-}
+  return number1 + number2;
+};
 
-var number1 = parseInt(prompt("Pick a number:"));
-var number2 = parseInt(prompt("Pick another number:"));
+var subtract = function(number1, number2) {
+  return number1 - number2;
+};
 
-alert(quotient(number1, number2))
+var multiply = function(number1, number2) {
+  return number1 * number2;
+};
+
+var divide = function(number1, number2) {
+  return number1 / number2;
+};
+
+$(document).ready(function() {
+    $("form#multiply").submit(function(event) {
+      event.preventDefault();
+      var number1 = parseInt($("#multiply1").val());
+      var number2 = parseInt($("#multiply2").val());
+      var result = multiply(number1, number2);
+      $("#rmultiply").text(result);
+    });
+
+    $("form#divide").submit(function(event) {
+      event.preventDefault();
+      var number1 = parseInt($("#divide1").val());
+      var number2 = parseInt($("#divide2").val());
+      var result = divide(number1, number2);
+      $("#rdivide").text(result);
+    });
+
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#add1").val());
+    var number2 = parseInt($("#add2").val());
+    var result = add(number1, number2);
+    $("#radd").text(result);
+  });
+
+  $("form#subtract").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#subtract1").val());
+    var number2 = parseInt($("#subtract2").val());
+    var result = subtract(number1, number2);
+    $("#rsubtract").text(result);
+  });
+});
